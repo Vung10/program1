@@ -272,24 +272,39 @@ opt_stmts() {
 void
 expr() {
     // to be completed
-	int x = 0;
-	while(tk=='+' || tk=='-'){
-		if(tk == '+'){
-			match('+');
-			term();
-			emit(add);
-		} else if (tk == '-') {
-			match('-');
-			term();  
-			emit(subtract);
+	term();
+	while(tk == '+' || tk== '-'){
+		int store_tk = tk;
+		if(store_tk == '+'){
+			match(PLUS);
+			emit('+');
+		} else if (store_tk == '-') {
+			match(MINUS);
+			emit('-');
 		}
+
+		term();
 	}
 }
+
 //*******************************************************************************
 
 void
 term() {
     // to be completed
+	factor();
+	while(tk == '*' || tk == '/'){
+		int store_tk = tk;
+		if(store_tk == '*'){
+			match(MULTIPLY);
+			emit('*');
+		}else if(store_tk ==  '/'){
+			match(DIVIDE);
+			emit('/');
+		}
+
+		factor();
+	}
 }
 
 //*******************************************************************************
@@ -312,7 +327,15 @@ moreterms() {
 	    
 	    case MINUS:
 		// to be completed
+		match(MiNUS);
+		term();
+		if(stackDepth < 2){
+			 error("Not enough operands for '-'");
+		}
 
+		emit(isub);
+		stackDepth--;
+		moreterms();
 		break;
 	    
 	    default:
@@ -329,12 +352,40 @@ morefactors() {
 	switch (tk) {
 	    case MUL:
 		// to be completed
-
+		match(MUL);
+		factor();
+		if(stackDepth < 2){
+			 error("Not enough operands for '*'");
+		}
+		
+		emit(imul);
+		stackDepth--;
 		morefactors();
 		break;
 	    
 	    // to be completed
-	    
+	case DIV:
+		match(DIV);
+		factor();
+		if(stackDepth < 2){
+			 error("Not enough operands for '/'");
+		}
+		
+		emit(idiv);
+		stackDepth--;
+		morefactors();
+		break;
+	case MOD:
+		match(MOD);
+		factor();
+		if(stackDepth < 2){
+			 error("Not enough operands for '%'");
+		}
+		
+		emit(imod);
+		stackDepth--;
+		morefactors();
+		break;
 	    default:
 		error("Expected '*', '/' or '%'");
 	}
