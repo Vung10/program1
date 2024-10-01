@@ -201,7 +201,7 @@ stmt() {
 		backpatch(if_loc, pc - if_loc);
 		match(ELSE);
 		stmt();
-		backpatch(else_jump_loc, pc - else_jump_loc);
+		backpatch(else_loc, pc - else_loc);
 	    }else{
 		backpatch(if_loc, pc - if_loc);  
 	    }
