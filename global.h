@@ -12,7 +12,23 @@
 
 
 #define LEFT_CURLY       '{'
-#define RIGHT_CURLY       '}'
+#define RIGHT_CURLY      '}'
+#define LEFT_PAREN       '('
+#define RIGHT_PAREN      ')'
+#define LEFT_BRACKET     '['
+#define RIGHT_BRACKET    ']'
+#define SEMICOLON        ';'
+#define COMMA            ','
+#define ASSIGN           '='
+#define PLUS             '+'
+#define MINUS            '-'
+#define MULTIPLY         '*'
+#define DIVIDE           '/'
+#define LESS_THAN        '<'
+#define GREATER_THAN     '>'
+#define EQUAL            '=='
+#define NOT_EQUAL        '!='
+
 // To be completed
 
 
@@ -25,6 +41,8 @@
 
 #define IF	INT32+1
 #define ELSE	IF+1
+#define WHILE ELSE+1
+
 // To be completed
 
 extern void error(char *m);
