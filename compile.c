@@ -262,6 +262,9 @@ stmt() {
 void
 opt_stmts() {
     // to be completed
+ 	while(tk != '(' && tk != MAX_SIZE){
+		stmt();
+	}
 }
 
 //*******************************************************************************
@@ -269,8 +272,19 @@ opt_stmts() {
 void
 expr() {
     // to be completed
+	int x = 0;
+	while(tk=='+' || tk=='-'){
+		if(tk == '+'){
+			match('+');
+			term();
+			emit(add);
+		} else if (tk == '-') {
+			match('-');
+			term();  
+			emit(subtract);
+		}
+	}
 }
-
 //*******************************************************************************
 
 void
