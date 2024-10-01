@@ -27,6 +27,9 @@ main(int argc, char* argv[])
 			printf(",%d> ", symtable[tokenval].var_index);
 			break;
 		    // to be completed
+		    case ID:
+			printf("ID);
+			printf(",%d> ", symtable[tokenval].var_index);
 		   
 		    case INT8:
 			printf("INT8");
