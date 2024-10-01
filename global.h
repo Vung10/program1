@@ -37,11 +37,21 @@
 #define INT8	ID+1
 #define INT16	INT8+1
 #define INT32	INT16+1
-
+/completed
 #define IF	INT32+1
 #define ELSE	IF+1
 #define WHILE ELSE+1
-
+#define RETURN  WHILE+1
+#define FOR     RETURN+1
+#define DO      FOR+1
+#define SWITCH  DO+1
+#define CASE    SWITCH+1
+#define BREAK   CASE+1
+#define CONTINUE BREAK+1
+#define DEFAULT CONTINUE+1
+#define FLOAT   DEFAULT+1
+#define CHAR    FLOAT+1
+#define INT     CHAR+1
 // To be completed
 
 extern void error(char *m);
