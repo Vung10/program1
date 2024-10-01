@@ -28,7 +28,6 @@
 #define GREATER_THAN     '>'
 #define EQUAL            '=='
 #define NOT_EQUAL        '!='
-
 // To be completed
 
 
