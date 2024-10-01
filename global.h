@@ -10,9 +10,10 @@
 #define NONE -1
 #define EOS '\0'
 
-//completed
+
 #define LEFT_CURLY       '{'
 #define RIGHT_CURLY      '}'
+// To be completed
 #define LEFT_PAREN       '('
 #define RIGHT_PAREN      ')'
 #define LEFT_BRACKET     '['
@@ -28,7 +29,7 @@
 #define GREATER_THAN     '>'
 #define EQUAL            '=='
 #define NOT_EQUAL        '!='
-// To be completed
+
 
 
 #define DONE	300
@@ -37,7 +38,7 @@
 #define INT8	ID+1
 #define INT16	INT8+1
 #define INT32	INT16+1
-/completed
+// To be completed
 #define IF	INT32+1
 #define ELSE	IF+1
 #define WHILE ELSE+1
@@ -52,7 +53,7 @@
 #define FLOAT   DEFAULT+1
 #define CHAR    FLOAT+1
 #define INT     CHAR+1
-// To be completed
+
 
 extern void error(char *m);
 extern void init();
