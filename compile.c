@@ -456,7 +456,7 @@ factor() {
 	
 	case ARG:
 	    // to be completed
-	     arg_index = symtable[tokenval].arg_index;
+	    var_index = symtable[tokenval].var_index;
 	    if(arg_index < 0){
 		error("argument are not valid largument");
 	    }else if(var_index == 0){
