@@ -205,10 +205,8 @@ stmt() {
 	    }else{
 		backpatch(if_loc, pc - if_loc);  
 	    }
-	    
-
+		
 	    // to be 
-
 	    break;
 	
 	case WHILE:
@@ -243,6 +241,8 @@ stmt() {
 		retLoc[numRets] = pc;
 		emit3(goto_, retLoc[numRets]);
 		numRets++;
+
+		stackdepth--;
 	    } else {
 		error("No value to return, stack empty");
 	    }
