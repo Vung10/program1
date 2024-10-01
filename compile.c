@@ -194,11 +194,20 @@ stmt() {
 
 	    stmt();
 
-	    // to be completed
+	    // to be 
+	    if(tk == ELSE){
+		else_loc = pc;
+		emit3(goto_, 0);
+		backpatch(if_loc, pc - if_loc);
+		match(ELSE);
+		stmt();
+		backpatch(else_jump_loc, pc - else_jump_loc);
+	    }else{
+		backpatch(if_loc, pc - if_loc);  
+	    }
+	    
 
-	    stmt();
-
-	    // to be completed
+	    // to be 
 
 	    break;
 	
