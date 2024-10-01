@@ -457,12 +457,12 @@ factor() {
 	case ARG:
 	    // to be completed
 	    var_index = symtable[tokenval].var_index;
-	    if(arg_index < 0){
+	    if(var_index < 0){
 		error("argument are not valid largument");
 	    }else if(var_index == 0){
 		    error("argument does not exist");
 	    } else {
-		    emit(iload, arg_index);
+		    emit(iload, var_index);
 		    stackDepth++;
 	    } 
 		    
