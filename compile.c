@@ -194,7 +194,7 @@ stmt() {
 
 	    stmt();
 
-	    // to be 
+	    // to be completed
 	    if(tk == ELSE){
 		else_loc = pc;
 		emit3(goto_, 0);
@@ -206,7 +206,7 @@ stmt() {
 		backpatch(if_loc, pc - if_loc);  
 	    }
 		
-	    // to be 
+	    // to be completed
 	    break;
 	
 	case WHILE:
@@ -232,7 +232,8 @@ stmt() {
 	    emit3(goto_, test_loc-pc);
 	    backpatch(loc, pc-loc);
 	    break;
-	
+	    
+	// to be completed
 	case RET:
 	    match(RET);
 	    expr();
@@ -247,7 +248,7 @@ stmt() {
 		error("No value to return, stack empty");
 	    }
 
-	    // to be completed
+	  
 
 	    break;
 	
@@ -446,16 +447,28 @@ factor() {
 		error("Variable does not exist");
 	    } else {
 		// to be completed
+		emit2(iload, var_index); 
+		stackDepth++;
 	    }
 
 	    match(ID);
 	    break;
 	
 	case ARG:
-	    match(ARG);
-
 	    // to be completed
-
+	     arg_index = symtable[tokenval].arg_index;
+	    if(arg_index < 0){
+		error("argument are not valid largument");
+	    }else if(var_index == 0){
+		    error("argument does not exist");
+	    } else {
+		    emit(iload, arg_index);
+		    stackDepth++;
+	    } 
+		    
+	     
+    	    emit2(iload, var_index);  
+	    match(ARG);
 	    break;
 
 	default:
